@@ -6,4 +6,5 @@
     <color name="colorAccent">#0c0c13</color>
     <color name="colorSurface">#ffffff</color>
     <color name="colorOnSurface">#b1b1b3</color>
+    <color name="gradientLightGrey">#F3F3F3</color>
 </resources>

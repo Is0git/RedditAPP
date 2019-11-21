@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/materialTextView"
@@ -15,6 +16,7 @@
         android:textColor="@color/colorAccent"
         app:layout_constraintStart_toStartOf="@+id/leftGuideline"
         app:layout_constraintTop_toTopOf="@+id/topGuideline" />
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/leftGuideline"
@@ -50,8 +52,9 @@
         android:id="@+id/divider"
         android:layout_width="0dp"
         android:layout_height="1dp"
+        android:alpha="0.8"
         android:layout_marginTop="10dp"
-        android:background="?android:attr/listDivider"
+        android:background="@color/gradientLightGrey"
         app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
         app:layout_constraintStart_toStartOf="@id/leftGuideline"
         app:layout_constraintTop_toBottomOf="@+id/materialTextView" />
@@ -85,22 +88,35 @@
         android:layout_width="0dp"
         android:layout_height="170dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/vertical_grey_gradient"
         android:elevation="1dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trendingText" />
+        app:layout_constraintTop_toBottomOf="@+id/trendingText"
+        tools:listitem="@layout/horizontal_list" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/postList"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
+        tools:listitem="@layout/vertical_list"
         android:elevation="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/rightGuideline"
-        app:layout_constraintStart_toStartOf="@id/leftGuideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trendingList" />
+
+    <View
+        android:id="@+id/trendingListDivider"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:alpha="0.1"
+        android:background="@color/colorOnSurface"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/trendingList" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

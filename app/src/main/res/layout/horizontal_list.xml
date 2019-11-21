@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="150dp"
+    android:layout_height="150dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/baseCard"
+        android:layout_width="118dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="16dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="8dp"
+        android:elevation="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/baseImage"
+            android:layout_width="match_parent"
+            android:src="@drawable/reddit_logo_800"
+            android:layout_height="match_parent"/>
+        <View
+            android:id="@+id/darkOverlay"
+            android:background="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:alpha="0.6"
+            android:layout_height="match_parent" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"
+        android:maxLength="35"
+        android:shadowColor="#94000000"
+        android:shadowDy="2"
+        android:shadowRadius="4"
+        android:text="Title, good title "
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="@color/colorSurface"
+        app:layout_constraintBottom_toTopOf="@+id/subRedditText"
+        app:layout_constraintEnd_toEndOf="@+id/subRedditText"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/baseCard"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/subRedditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:elevation="2dp"
+        android:text="r/subreddit"
+        android:textSize="7sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/baseCard"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/mini_reddit_icon"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/baseCard"
+        app:layout_constraintStart_toStartOf="@+id/baseCard" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
