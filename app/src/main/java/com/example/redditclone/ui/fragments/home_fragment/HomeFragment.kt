@@ -1,4 +1,4 @@
-package com.example.redditclone.ui.fragments
+package com.example.redditclone.ui.fragments.home_fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
