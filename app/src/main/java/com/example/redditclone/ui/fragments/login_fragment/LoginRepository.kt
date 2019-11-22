@@ -1,14 +1,17 @@
 package com.example.redditclone.ui.fragments.login_fragment
 
 import android.content.SharedPreferences
+import android.util.Base64
 import androidx.lifecycle.MutableLiveData
 import com.example.redditclone.data.models.AuthResponse
 import com.example.redditclone.data.services.AuthService
 import com.example.redditclone.di.main_activity.login_fragment.LoginFragmentScope
+import com.example.redditclone.util.contracts.CLIENT_KEY
 import com.example.redditclone.util.contracts.REDIRECT_URL
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import okio.Utf8
 import retrofit2.Retrofit
 import javax.inject.Inject
 
@@ -21,11 +24,13 @@ class LoginRepository @Inject constructor(
     val authService = retrofit.create(AuthService::class.java)
     suspend fun getAuth(code: String) {
         authState.postValue(AuthStateHandle.States.START)
+      val encodedAuthString = "Basic " + Base64.encodeToString("$CLIENT_KEY:".toByteArray(), Base64.NO_WRAP)
         val authResult = withContext(Dispatchers.IO) {
             authService.getAuthToken(
                 "authorization_code",
                 code,
-                REDIRECT_URL
+                REDIRECT_URL,
+                encodedAuthString
             )
         }
         when {
